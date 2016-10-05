@@ -1,4 +1,14 @@
-CREATE TABLE company
+CREATE SCHEMA fristone;
+CREATE TABLE fristone.customers
+(
+    cus_firstname VARCHAR(155),
+    cus_id INTEGER PRIMARY KEY NOT NULL,
+    cus_lastname VARCHAR(155),
+    cus_email VARCHAR(15)
+
+);
+
+CREATE TABLE fristone.company
 (
     com_name VARCHAR(155),
     com_dun INTEGER,
@@ -6,7 +16,7 @@ CREATE TABLE company
 );
 
 
-CREATE TABLE orders
+CREATE TABLE fristone.orders
 (
     ord_number INTEGER,
     ord_id INTEGER PRIMARY KEY NOT NULL,
@@ -17,7 +27,7 @@ CREATE TABLE orders
     ord_date DATE,
     CONSTRAINT orders_company_com_id_fk FOREIGN KEY (ord_com_id) REFERENCES company (com_id)
 );
-CREATE TABLE products
+CREATE TABLE fristone.products
 (
     pro_name VARCHAR(155),
     pro_com_id INTEGER,
@@ -29,7 +39,19 @@ CREATE TABLE products
     CONSTRAINT products_company_com_id_fk FOREIGN KEY (pro_com_id) REFERENCES company (com_id)
 );
 
-CREATE TABLE addresses
+
+
+CREATE TABLE fristone.employees
+(
+    emp_com_id INTEGER,
+    emp_first VARCHAR(155),
+    emp_id INTEGER PRIMARY KEY NOT NULL,
+    emp_lastname VARCHAR(155),
+    emp_ssn INTEGER,
+    CONSTRAINT employees_company_com_id_fk FOREIGN KEY (emp_com_id) REFERENCES company (com_id)
+);
+
+CREATE TABLE fristone.addresses
 (
     add_name VARCHAR(155),
     add_com_id INTEGER,
@@ -45,31 +67,4 @@ CREATE TABLE addresses
     CONSTRAINT addresses_company_com_id_fk FOREIGN KEY (add_com_id) REFERENCES company (com_id),
     CONSTRAINT addresses_employees_emp_id_fk FOREIGN KEY (add_emp_id) REFERENCES employees (emp_id),
     CONSTRAINT addresses_customers_cus_id_fk FOREIGN KEY (add_cus_id) REFERENCES customers (cus_id)
-);
-
-CREATE TABLE customers
-(
-    cus_firstname VARCHAR(155),
-    cus_id INTEGER PRIMARY KEY NOT NULL,
-    cus_lastname VARCHAR(155),
-    cus_email VARCHAR(15)
-);
-
-CREATE TABLE employees
-(
-    emp_com_id INTEGER,
-    emp_first VARCHAR(155),
-    emp_id INTEGER PRIMARY KEY NOT NULL,
-    emp_lastname VARCHAR(155),
-    emp_ssn INTEGER,
-    CONSTRAINT employees_company_com_id_fk FOREIGN KEY (emp_com_id) REFERENCES company (com_id)
-);
-
-CREATE TABLE join_products_orders
-(
-    jpo_id INTEGER PRIMARY KEY NOT NULL,
-    jpo_pro_id INTEGER,
-    jpo_ord_id INTEGER,
-    CONSTRAINT join_products_orders_products_pro_id_fk FOREIGN KEY (jpo_pro_id) REFERENCES products (pro_id),
-    CONSTRAINT join_products_orders_orders_ord_id_fk FOREIGN KEY (jpo_ord_id) REFERENCES orders (ord_id)
 );

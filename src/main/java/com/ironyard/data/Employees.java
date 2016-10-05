@@ -10,16 +10,14 @@ public class Employees {
     private String lastName;
     private int ssn;
     private int id;
-    private int empConID;
-    private List<Addresses> addressesList;
+    private Addresses address;
 
-    public Employees(String firstName, String lastName, int ssn, int id, int empConID, List<Addresses> addressesList) {
+    public Employees(String firstName, String lastName, int ssn, int id, Addresses address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.ssn = ssn;
         this.id = id;
-        this.empConID = empConID;
-        this.addressesList = addressesList;
+        this.address = address;
     }
 
     public String getFirstName() {
@@ -54,19 +52,11 @@ public class Employees {
         this.id = id;
     }
 
-    public int getEmpConID() {
-        return empConID;
+    public Addresses getAddress() {
+        return address;
     }
 
-    public void setEmpConID(int empConID) {
-        this.empConID = empConID;
-    }
-
-    public List<Addresses> getAddressesList() {
-        return addressesList;
-    }
-
-    public void setAddressesList(List<Addresses> addressesList) {
-        this.addressesList = addressesList;
+    public void setAddress(Addresses address) {
+        this.address = address;
     }
 }

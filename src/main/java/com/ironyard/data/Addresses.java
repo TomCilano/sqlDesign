@@ -12,13 +12,9 @@ public class Addresses {
     private String state;
     private int zip;
     private int id;
-    private int comId;
-    private int empId;
-    private int cusId;
 
-    public Addresses(String name, String firstLine, String secondLine,
-                     int phone, String city, String state, int zip,
-                     int id, int comId, int empId, int cusId) {
+
+    public Addresses(String name, String firstLine, String secondLine, int phone, String city, String state, int zip, int id) {
         this.name = name;
         this.firstLine = firstLine;
         this.secondLine = secondLine;
@@ -27,9 +23,6 @@ public class Addresses {
         this.state = state;
         this.zip = zip;
         this.id = id;
-        this.comId = comId;
-        this.empId = empId;
-        this.cusId = cusId;
     }
 
     public String getName() {
@@ -94,30 +87,6 @@ public class Addresses {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getComId() {
-        return comId;
-    }
-
-    public void setComId(int comId) {
-        this.comId = comId;
-    }
-
-    public int getEmpId() {
-        return empId;
-    }
-
-    public void setEmpId(int empId) {
-        this.empId = empId;
-    }
-
-    public int getCusId() {
-        return cusId;
-    }
-
-    public void setCusId(int cusId) {
-        this.cusId = cusId;
     }
 }
 

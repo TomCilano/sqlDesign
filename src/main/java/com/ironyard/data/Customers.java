@@ -10,13 +10,16 @@ public class Customers {
     private String lastName;
     private String email;
     private int id;
-    private List<Addresses> addressesList;
+    private Addresses address;
+    private List<Order> customerOrders;
 
-    public Customers(String firstName, String lastName, String email, int id, List<Addresses> addresses) {
+    public Customers(String firstName, String lastName, String email, int id, Addresses address, List<Order> customerOrders) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.id = id;
+        this.address = address;
+        this.customerOrders = customerOrders;
     }
 
     public String getFirstName() {
@@ -51,11 +54,19 @@ public class Customers {
         this.id = id;
     }
 
-    public List<Addresses> getAddressesList() {
-        return addressesList;
+    public Addresses getAddress() {
+        return address;
     }
 
-    public void setAddressesList(List<Addresses> addressesList) {
-        this.addressesList = addressesList;
+    public void setAddress(Addresses address) {
+        this.address = address;
+    }
+
+    public List<Order> getCustomerOrders() {
+        return customerOrders;
+    }
+
+    public void setCustomerOrders(List<Order> customerOrders) {
+        this.customerOrders = customerOrders;
     }
 }

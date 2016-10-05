@@ -1,5 +1,7 @@
 package com.ironyard.data;
 
+import java.util.List;
+
 /**
  * Created by Tom on 9/28/16.
  */
@@ -7,20 +9,20 @@ public class Product {
 
     private String name;
     private int number;
-    private String discription;
+    private String description;
     private int price;
     private String category;
     private int id;
-    private int comID;
+    private List<Order> orderList;
 
-    public Product(String name, int number, String discription, int price, String category, int id, int comID) {
+    public Product(String name, int number, String description, int price, String category, int id, List<Order> orderList) {
         this.name = name;
         this.number = number;
-        this.discription = discription;
+        this.description = description;
         this.price = price;
         this.category = category;
         this.id = id;
-        this.comID = comID;
+        this.orderList = orderList;
     }
 
     public String getName() {
@@ -39,12 +41,12 @@ public class Product {
         this.number = number;
     }
 
-    public String getDiscription() {
-        return discription;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDiscription(String discription) {
-        this.discription = discription;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public int getPrice() {
@@ -71,11 +73,11 @@ public class Product {
         this.id = id;
     }
 
-    public int getComID() {
-        return comID;
+    public List<Order> getOrderList() {
+        return orderList;
     }
 
-    public void setComID(int comID) {
-        this.comID = comID;
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 }
